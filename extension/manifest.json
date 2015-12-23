@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+	"name": "YouRLY",
+	"version": "0.1.0",
+	"description": "Descriptive YouTube tooltips",
+	"author": "Shaun Hickson",
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"css": ["yourly.css"],
+			"js": ["jquery.js", "yourly.js"]
+		}
+	]
+}
