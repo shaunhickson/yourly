@@ -1,19 +1,19 @@
 $("a").each(function(){
   var server_app = "http://yourly.cfapps.io/"
-  var url = $(this).attr("href");
-  console.log(url);
-  if (url.indexOf("youtube.com") !== -1) {
+  var element = $(this);
+  var url = element.attr("href");
+  var link_text = element.html();
+  if (url.indexOf("youtube.com") !== -1 && url == link_text) {
     var id = url.substring(url.indexOf("v=") + 2);
-    console.log(id);
     $.ajax({
         type: "GET",
         async: true, 
         url: server_app + id}).done(function(message, text, jqXHR) {
-            console.log(jqXHR);
+            new_text = JSON.parse(jqXHR.responseText).title
+            element.html(new_text);
         });
     }  
 });
-
 
 
 
